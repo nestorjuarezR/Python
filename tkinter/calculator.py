@@ -25,15 +25,15 @@ Button(root, text='0', command=lambda:get_numbers(0)).grid(row=6, column=1)
 #Boton Operaciones
 Button(root, text='AC').grid(row=6, column=0)
 Button(root, text='.').grid(row=6, column=2)
-Button(root, text='/').grid(row=2, column=3)
-Button(root, text='x').grid(row=3, column=3)
-Button(root, text='-').grid(row=4, column=3)
-Button(root, text='+').grid(row=5, column=3)
+Button(root, text='/', command=lambda:get_operation('/')).grid(row=2, column=3)
+Button(root, text='x', command=lambda:get_operation('x')).grid(row=3, column=3)
+Button(root, text='-', command=lambda:get_operation('-')).grid(row=4, column=3)
+Button(root, text='+', command=lambda:get_operation('+')).grid(row=5, column=3)
 
 #Botones mas funciones
 Button(root, text='C').grid(row=2, column=0)
 Button(root, text='↞').grid(row=2, column=1)
-Button(root, text='%').grid(row=2, column=2)
+Button(root, text='%', command=lambda:get_operation('%')).grid(row=2, column=2)
 Button(root, text='=').grid(row=6, column=3)
 
 i = 0
@@ -44,6 +44,10 @@ def get_numbers(n):
 
 def get_operation(operator):
     global i
+    operator_length = len(operator)
+    display.insert(i, operator)
+    i += operator_length
+
      
 
 root.mainloop()
